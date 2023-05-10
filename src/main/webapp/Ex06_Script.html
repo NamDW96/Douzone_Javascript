@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type = "text/javascript">
+		/*
+		JAVA
+		public void print(){}
+		public String print(){return "";}
+		public int print(int num, int num2){return num + num2;}
+		
+		Javascript
+		function 함수명() {}
+		function 함수명(num, num2){}
+		function 함수명() {return 100;}
+		
+		void(X), return type(X)
+		
+		*/
+		
+		function callConfirm(){ //사용자 정의 함수
+			if(window.confirm("삭제하시겠습니까..?")){ //confirm 내장함수 return true or false
+				alert("네");
+			} else{
+				alert("아니오");
+			}
+		}
+		/*
+			팝업창()
+			전통적인 방법 : 새로운 창 띄워서 소스 제공
+			현대적인 방법 : 페이지 안에 <div> 팝업되는 내용을 만들어서
+		*/
+		
+		function showPopup(){
+				window.open("Ex06_Popup.html","zipcodl", "width=200, height=200");
+			}
+			
+		function myFunc(){
+			let popupwindow = window.open("Ex06_Popup.html","zipcode","width=200,hegiht=200");
+			//popupwindow 자체가 popup창
+			//새창에 제어가 가능
+			popupwindow.document.write("<p>this is zipcode window</p>");
+		}
+		
+		//JAVA : public void goUrlTime(String url){}
+		function goUrlTime(url){
+			window.setTimeout("location.href='" + url + "'",3000);
+			//url > http://www.naver.com
+			//location.href='http://www.naver.com'
+			//이동해서 naver주소로 ...... 3000의 시간(3초)가 지난 뒤에
+		}
+		
+		//JAVA public int myCallFunc(int i, int j, int k){return i+j+k;}
+		
+		function myCallFunc(i, j, k){
+			return i+j+k;
+		}
+		
+		let result = myCallFunc(10,20,30);
+		console.log("result : " + result);
+		
+		//javascript 이름없는 함수 (익명함수)
+		//이름이 없어요 (한번만 쓰겠다 : 재사용하지 않겠다.)
+		//function 이름{}
+		
+		changeColor = function(){
+			window.document.bgColor = "silver";
+			window.document.fgColor = "red";
+		}
+		
+	</script>
+</head>
+<body>
+	<h3>내장 함수, 사용자 정의 함수</h3>
+	<button onclick="callConfirm()">클릭 사건 발생 (함수호출)</button><br>
+	<button onclick="showPopup()">전통팝업</button><br>
+	<button onclick="myFunc()">팝업(object)</button><br>
+	<button onclick="goUrlTime('http://www.daum.net')">3초후 이동 </button><br>
+	<button onclick="changeColor()">익명함수 호출</button><br>
+</body>
+</html>
