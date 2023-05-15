@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.democlass {color: red;}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<h1 class="democlass">Hello World_1</h1>
+		<h1 class="democlass">Hello World_2</h1>
+		<h1 class="democlass">Hello World_3</h1>
+	</div>
+</body>
+	<script type="text/javascript">
+		//document.getElementsByTagName("h1")[0].removeAttribute('class');
+		
+		/*
+		let harray = document.getElementsByTagName("h1");
+		console.log(harray);
+		
+		for(let i=0; i< harray.length; i++){
+			harray[i].removeAttribute("class");
+		}
+		*/
+		
+		/* let harray = document.getElementsByTagName("h1");
+		for(let index in harray){
+			console.log(harray[index]);
+			console.log("index : " + index + " -length : " + harray.length);
+			document.getElementById("div").removeChild(harray[index]);
+		} */
+		/*
+		삭제순서 : 0 -> 1 -> 2 
+		Hello World_2 가 남아 >> 왜?
+		
+			[0]				 [1]			[2]
+		[Hello World_1][Hello World_2][Hello World_3]
+		
+			[0]				 [1]			
+		[Hello World_2][Hello World_3] >> for(let index in harray) >> index >> 1
+		
+			[0]						
+		[Hello World_2] >> for(let index in harray) >> index >> 2
+		
+		예외가 발생하지 않도록 하고 h1 요소 삭제
+		개선된 for문 안에서
+		
+		[2] -> [1] -> [0]
+		
+		[0][1][2] >> [2]삭제
+		[0][1]    >> [1]삭제
+		[0]       >> [0]삭제
+		
+		*/
+		
+		/* let harray = document.getElementsByTagName("h1");
+		for(let index in harray){
+			console.log(harray[index]);
+			console.log("index : " + index + " -length : " + harray.length);
+			if(harray.length >0){
+				document.getElementById("div").removeChild(harray[harray.length-1]);
+			}
+		} */
+		
+		/* let harray = document.getElementsByTagName("h1");
+		for(let index in harray){
+			index = 0;
+			console.log(harray[index]);
+			console.log("index : " + index + " -length : " + harray.length);
+			if(harray.length >0){
+				document.getElementById("div").removeChild(harray[index]);
+			}
+		} */
+		
+		let arr = document.getElementsByTagName('h1');
+		let len = arr.length;
+		for(let i =0; i<len; i++){
+			//remove 자기자신 삭제 <-> child로 삭제
+			arr[arr.length-1].remove();
+		}
+		 
+		
+		
+	</script>
+</html>
